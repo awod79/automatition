@@ -7,10 +7,10 @@ today=`date +"%d-%m-%Y","%T"`
 logfile="/var/log/start-instances.log"
 
 # Grab all Instance IDs for START action and export the IDs to a text file
-aws ec2 describe-instances --filters Name=tag-key,Values=bash-start Name=tag-value,Values=14-00 Name=tag-value,Values=wd --query Reservations[*].Instances[*].[InstanceId] --output text > /tmp/start_ad_instance_info.txt
+aws ec2 describe-instances --filters Name=tag-key,Values=bash-start Name=tag-value,Values=14-00 Name=tag-value,Values=wd --query Reservations[*].Instances[*].[InstanceId] --output text > /tmp/start_wd_instance_info.txt
 
 # Take list of starting instances
-for instance_id in $(cat /tmp/start_ad_instance_info.txt)
+for instance_id in $(cat /tmp/start_wd_instance_info.txt)
 
 do
 
